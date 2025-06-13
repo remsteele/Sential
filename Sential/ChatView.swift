@@ -13,7 +13,7 @@ struct ChatView: View {
     @State private var messages: [Message] = []
     @State private var inputText = ""
     
-    let apiKey = "YOUR_API_KEY" // Replace with your OpenAI API key
+    let apiKey = Config.openAIAPIKey
     
     var body: some View {
         VStack {
@@ -105,6 +105,7 @@ struct ChatView: View {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        print("Bearer \(apiKey)")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let body: [String: Any] = [

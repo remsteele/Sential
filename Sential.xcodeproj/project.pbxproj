@@ -15,6 +15,14 @@
 		C0BD3FDD2DFCB809000D5096 /* SentialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD3FDC2DFCB809000D5096 /* SentialTests.swift */; };
 		C0BD3FE72DFCB809000D5096 /* SentialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD3FE62DFCB809000D5096 /* SentialUITests.swift */; };
 		C0BD3FE92DFCB809000D5096 /* SentialUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD3FE82DFCB809000D5096 /* SentialUITestsLaunchTests.swift */; };
+		C0BD3FF62DFCBA1E000D5096 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C0BD3FF52DFCBA1E000D5096 /* .gitignore */; };
+		C0BD3FF82DFCC32C000D5096 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD3FF72DFCC32C000D5096 /* Models.swift */; };
+		C0BD3FFA2DFCC356000D5096 /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD3FF92DFCC356000D5096 /* LandingPage.swift */; };
+		C0BD3FFC2DFCC383000D5096 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD3FFB2DFCC383000D5096 /* MainTabView.swift */; };
+		C0BD3FFE2DFCC3A8000D5096 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD3FFD2DFCC3A8000D5096 /* SettingsView.swift */; };
+		C0BD40002DFCC3CC000D5096 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD3FFF2DFCC3CC000D5096 /* ProgressView.swift */; };
+		C0BD40022DFCC3E3000D5096 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD40012DFCC3E3000D5096 /* ChatView.swift */; };
+		C0BD40072DFCC968000D5096 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD40062DFCC968000D5096 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +54,15 @@
 		C0BD3FE22DFCB809000D5096 /* SentialUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SentialUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0BD3FE62DFCB809000D5096 /* SentialUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentialUITests.swift; sourceTree = "<group>"; };
 		C0BD3FE82DFCB809000D5096 /* SentialUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentialUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C0BD3FF52DFCBA1E000D5096 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C0BD3FF72DFCC32C000D5096 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		C0BD3FF92DFCC356000D5096 /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
+		C0BD3FFB2DFCC383000D5096 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		C0BD3FFD2DFCC3A8000D5096 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C0BD3FFF2DFCC3CC000D5096 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		C0BD40012DFCC3E3000D5096 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		C0BD40062DFCC968000D5096 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C0BD40082DFCCA61000D5096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +93,8 @@
 		C0BD3FBD2DFCB7FF000D5096 = {
 			isa = PBXGroup;
 			children = (
+				C0BD40082DFCCA61000D5096 /* Info.plist */,
+				C0BD3FF52DFCBA1E000D5096 /* .gitignore */,
 				C0BD3FC82DFCB800000D5096 /* Sential */,
 				C0BD3FDB2DFCB809000D5096 /* SentialTests */,
 				C0BD3FE52DFCB809000D5096 /* SentialUITests */,
@@ -101,6 +120,13 @@
 				C0BD3FCD2DFCB800000D5096 /* Item.swift */,
 				C0BD3FCF2DFCB808000D5096 /* Assets.xcassets */,
 				C0BD3FD12DFCB808000D5096 /* Preview Content */,
+				C0BD3FF72DFCC32C000D5096 /* Models.swift */,
+				C0BD3FF92DFCC356000D5096 /* LandingPage.swift */,
+				C0BD3FFB2DFCC383000D5096 /* MainTabView.swift */,
+				C0BD3FFD2DFCC3A8000D5096 /* SettingsView.swift */,
+				C0BD3FFF2DFCC3CC000D5096 /* ProgressView.swift */,
+				C0BD40012DFCC3E3000D5096 /* ChatView.swift */,
+				C0BD40062DFCC968000D5096 /* Config.swift */,
 			);
 			path = Sential;
 			sourceTree = "<group>";
@@ -218,6 +244,8 @@
 				Base,
 			);
 			mainGroup = C0BD3FBD2DFCB7FF000D5096;
+			packageReferences = (
+			);
 			productRefGroup = C0BD3FC72DFCB800000D5096 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0BD3FD32DFCB808000D5096 /* Preview Assets.xcassets in Resources */,
+				C0BD3FF62DFCBA1E000D5096 /* .gitignore in Resources */,
 				C0BD3FD02DFCB808000D5096 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,9 +289,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0BD3FFE2DFCC3A8000D5096 /* SettingsView.swift in Sources */,
 				C0BD3FCC2DFCB800000D5096 /* ContentView.swift in Sources */,
+				C0BD3FFA2DFCC356000D5096 /* LandingPage.swift in Sources */,
 				C0BD3FCE2DFCB800000D5096 /* Item.swift in Sources */,
+				C0BD40022DFCC3E3000D5096 /* ChatView.swift in Sources */,
 				C0BD3FCA2DFCB800000D5096 /* SentialApp.swift in Sources */,
+				C0BD40002DFCC3CC000D5096 /* ProgressView.swift in Sources */,
+				C0BD40072DFCC968000D5096 /* Config.swift in Sources */,
+				C0BD3FF82DFCC32C000D5096 /* Models.swift in Sources */,
+				C0BD3FFC2DFCC383000D5096 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +387,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -408,6 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
