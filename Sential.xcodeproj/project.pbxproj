@@ -23,6 +23,7 @@
 		C0BD40002DFCC3CC000D5096 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD3FFF2DFCC3CC000D5096 /* ProgressView.swift */; };
 		C0BD40022DFCC3E3000D5096 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD40012DFCC3E3000D5096 /* ChatView.swift */; };
 		C0BD40072DFCC968000D5096 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD40062DFCC968000D5096 /* Config.swift */; };
+		C0BD40442E01EAB3000D5096 /* Info.plist.example in Resources */ = {isa = PBXBuildFile; fileRef = C0BD40432E01EAB3000D5096 /* Info.plist.example */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		C0BD40012DFCC3E3000D5096 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C0BD40062DFCC968000D5096 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C0BD40082DFCCA61000D5096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0BD40422E01E92F000D5096 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C0BD40432E01EAB3000D5096 /* Info.plist.example */ = {isa = PBXFileReference; lastKnownFileType = text; path = Info.plist.example; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 		C0BD3FBD2DFCB7FF000D5096 = {
 			isa = PBXGroup;
 			children = (
+				C0BD40432E01EAB3000D5096 /* Info.plist.example */,
+				C0BD40422E01E92F000D5096 /* README.md */,
 				C0BD40082DFCCA61000D5096 /* Info.plist */,
 				C0BD3FF52DFCBA1E000D5096 /* .gitignore */,
 				C0BD3FC82DFCB800000D5096 /* Sential */,
@@ -264,6 +269,7 @@
 			files = (
 				C0BD3FD32DFCB808000D5096 /* Preview Assets.xcassets in Resources */,
 				C0BD3FF62DFCBA1E000D5096 /* .gitignore in Resources */,
+				C0BD40442E01EAB3000D5096 /* Info.plist.example in Resources */,
 				C0BD3FD02DFCB808000D5096 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
