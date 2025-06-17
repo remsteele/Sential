@@ -22,6 +22,6 @@ struct SentialApp: App {
                 })
             }
         }
-        .modelContainer(for: [UserSettings.self, FoodIntake.self])
+        .modelContainer(for: [UserSettings.self, FoodIntake.self, ChatMessage.self])
     }
 }

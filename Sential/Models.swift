@@ -46,3 +46,18 @@ class FoodIntake {
         self.carbs = carbs
     }
 }
+
+@Model
+class ChatMessage {
+    var timestamp: Date
+    var role: String
+    var content: String
+    var name: String?
+    
+    init(timestamp: Date, role: String, content: String, name: String? = nil) {
+        self.timestamp = timestamp
+        self.role = role
+        self.content = content
+        self.name = name
+    }
+}

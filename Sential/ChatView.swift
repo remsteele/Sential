@@ -10,20 +10,37 @@ import SwiftData
 
 struct ChatView: View {
     @Environment(\.modelContext) private var modelContext
-    @State private var messages: [Message] = []
+    @State private var selectedDate = Date()
+    @Query(sort: \ChatMessage.timestamp) private var chatMessages: [ChatMessage]
     @State private var inputText = ""
     
     let apiKey = Config.openAIAPIKey
     
     var body: some View {
         VStack {
+            HStack {
+                Button(action: {
+                    selectedDate = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate)!
+                }) {
+                    Image(systemName: "chevron.left")
+                }
+                DatePicker("", selection: $selectedDate, displayedComponents: .date)
+                    .labelsHidden()
+                Button(action: {
+                    selectedDate = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate)!
+                }) {
+                    Image(systemName: "chevron.right")
+                }
+            }
+            .padding()
+            
             ScrollView {
                 LazyVStack(alignment: .leading) {
-                    ForEach(messages) { message in
-                        Text(message.content)
-                            .padding()
-                            .background(message.role == "user" ? Color.blue.opacity(0.2) : Color.gray.opacity(0.2))
-                            .cornerRadius(10)
+                    let startOfDay = Calendar.current.startOfDay(for: selectedDate)
+                    let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay)!
+                    let filteredMessages = chatMessages.filter { $0.timestamp >= startOfDay && $0.timestamp < endOfDay }
+                    ForEach(filteredMessages) { message in
+                        ChatBubble(message: message)
                     }
                 }
             }
@@ -35,21 +52,27 @@ struct ChatView: View {
             }
             .padding()
         }
+        .toolbar {
+            Button("Reset Chat") {
+                resetChat()
+            }
+        }
     }
     
     private func sendMessage() {
-        let userMessage = Message(role: "user", content: inputText)
-        messages.append(userMessage)
+        let userMessage = ChatMessage(timestamp: Date(), role: "user", content: inputText)
+        modelContext.insert(userMessage)
         inputText = ""
         Task {
             await processMessage(userMessage)
         }
     }
     
-    private func processMessage(_ message: Message) async {
-        var currentMessages = messages
-        let systemMessage = Message(role: "system", content: getSystemMessage())
-        currentMessages.insert(systemMessage, at: 0)
+    private func processMessage(_ message: ChatMessage) async {
+        var currentMessages: [ChatMessage] = [ChatMessage(timestamp: Date(), role: "system", content: getSystemMessage())]
+        currentMessages.append(message)
+        let existingMessages = chatMessages.filter { $0.role != "system" }
+        currentMessages.insert(contentsOf: existingMessages, at: 1)
         
         let functions: [[String: Any]] = [
             [
@@ -76,12 +99,12 @@ struct ChatView: View {
         while true {
             guard let response = await sendToAPI(messages: currentMessages, functions: functions) else { break }
             if let content = response.text {
-                let assistantMessage = Message(role: "assistant", content: content)
-                messages.append(assistantMessage)
+                let assistantMessage = ChatMessage(timestamp: Date(), role: "assistant", content: content)
+                modelContext.insert(assistantMessage)
                 break
             } else if let (name, arguments) = response.functionCall {
                 let result = executeFunction(name: name, arguments: arguments)
-                let functionResponse = Message(role: "function", content: result, name: name)
+                let functionResponse = ChatMessage(timestamp: Date(), role: "function", content: result, name: name)
                 currentMessages.append(functionResponse)
             }
         }
@@ -100,12 +123,11 @@ struct ChatView: View {
         return "You are a helpful assistant for tracking calorie intake."
     }
     
-    private func sendToAPI(messages: [Message], functions: [[String: Any]]) async -> APIResponse? {
+    private func sendToAPI(messages: [ChatMessage], functions: [[String: Any]]) async -> APIResponse? {
         let url = URL(string: "https://api.openai.com/v1/chat/completions")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
-        print("Bearer \(apiKey)")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let body: [String: Any] = [
@@ -158,18 +180,37 @@ struct ChatView: View {
             return "Unknown function"
         }
     }
+    
+    private func resetChat() {
+        let startOfDay = Calendar.current.startOfDay(for: selectedDate)
+        let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay)!
+        let messagesToDelete = chatMessages.filter { $0.timestamp >= startOfDay && $0.timestamp < endOfDay }
+        for message in messagesToDelete {
+            modelContext.delete(message)
+        }
+    }
 }
 
-struct Message: Identifiable {
-    let id = UUID()
-    let role: String
-    let content: String
-    let name: String?
+struct ChatBubble: View {
+    let message: ChatMessage
     
-    init(role: String, content: String, name: String? = nil) {
-        self.role = role
-        self.content = content
-        self.name = name
+    var body: some View {
+        HStack {
+            if message.role == "assistant" {
+                Text(message.content)
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
+                Spacer()
+            } else if message.role == "user" {
+                Spacer()
+                Text(message.content)
+                    .padding()
+                    .background(Color.blue.opacity(0.2))
+                    .cornerRadius(10)
+            }
+        }
+        .padding(.horizontal)
     }
 }
 
