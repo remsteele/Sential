@@ -1,5 +1,7 @@
 # Sential
 
+[![license](https://img.shields.io/github/license/remsteele/sential)](https://github.com/remsteele/sential/blob/main/LICENSE)
+
 **Sential** is a sleek, SwiftUI-based iOS application thoughtfully designed for individuals who find strict calorie tracking apps—where precise food weighing is required—challenging, especially those with difficult relationships with food. Built with modern Swift and SwiftData, this app offers a more lenient approach, allowing users to track only the macros they choose (calories, protein, fat, carbs) with customizable targets, fostering a healthier and less rigid tracking experience. Note that it requires users to have some knowledge of nutrition to use effectively.
 
 ## About the Project
